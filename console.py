@@ -1,10 +1,15 @@
 #!/usr/bin/python3
 """Command Interpreter"""
 
-
 import cmd
-from models import *
-
+from models import storage
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """Class defining the Command interpreter for HBNB"""
@@ -12,22 +17,20 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, command_arg):
         """Function to quit the command and exit"""
-        return (True)
+        return True
 
     def do_EOF(self, command_arg):
-        """Function to use EOF(end of file)
-        command to exit -- Ctrl+D"""
+        """Function to use EOF(end of file) command to exit -- Ctrl+D"""
         print()
-        return (True)
+        return True
 
     def emptyline(self):
-        """Function that does nothing on an empty input
-        line + ENTER"""
+        """Function that does nothing on an empty input line + ENTER"""
         pass
 
     def do_create(self, command_arg):
         """Creates a new instance of BaseModel"""
-        if command_arg == "" or command_arg is None:
+        if not command_arg:
             print("** class name missing **")
             return
         elif command_arg not in storage.classes():
@@ -40,8 +43,7 @@ class HBNBCommand(cmd.Cmd):
             print(obj.id)
 
     def do_show(self, command_arg):
-        """Prints the string rep of an instance based on
-        the class name and id"""
+        """Prints the string rep of an instance based on the class name and id"""
         if not command_arg:
             print("** class name missing **")
             return
@@ -119,6 +121,13 @@ class HBNBCommand(cmd.Cmd):
         setattr(obj, parts[2], parts[3])
         obj.save()
 
+    def default(self, line):
+        """Handle unrecognized commands"""
+        parts = line.split('.')
+        if len(parts) == 2 and parts[1] == "all()":
+            self.do_all(parts[0])
+        else:
+            print(f"*** Unknown syntax: {line}")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
