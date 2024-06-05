@@ -11,6 +11,7 @@ from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
     """Class defining the Command interpreter for HBNB"""
     prompt = '(hbnb) '
@@ -125,7 +126,8 @@ class HBNBCommand(cmd.Cmd):
         """Handle unrecognized commands"""
         parts = line.split('.')
         if len(parts) == 2 and parts[1] == "all()":
-            self.do_all(parts[0])
+            class_name = parts[0]
+            self.do_all(class_name)
         else:
             print(f"*** Unknown syntax: {line}")
 
