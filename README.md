@@ -16,6 +16,18 @@ Next, go to the atlas-AirBnB_clone directory:
 ```
 $ cd atlas-AirBnB_clone
 ```
+## How to use it?
+Start the console by entering `./console.py`. Then, this will start the command line interpreter and you will be prompted with `(hbnb)`...
+Here are the available commands:
+
+* `EOF` - Exit the console
+* `all` - Print the string representations of all of the instances of classes
+* `create` - Create a new instance
+* `destroy` - Delete an instance
+* `help` - Help settings
+* `quit` - Exit the console
+* `show` - Print the string representation of the instance
+* `update` - Update an instance
 
 ## Interactive mode & Examples:
 
@@ -65,9 +77,9 @@ $ echo "python3 -m unittest discover tests" | bash
 
 ## Authors and Acknowledgments
 
-- LJ Thao 
-- Dacoda Takagi 
-- Charles Johnson
+* `LJ Thao`
+* `Dacoda Takagi` 
+* `Charles Johnson`
 
 ![HBHB logo](https://github.com/LJThao/atlas-AirBnB_clone/blob/main/airbnb.png)
 
