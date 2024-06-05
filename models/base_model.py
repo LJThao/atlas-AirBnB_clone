@@ -4,12 +4,9 @@
 
 import uuid
 from datetime import datetime
-import models
-
+from models import storage
 
 class BaseModel:
-    """BaseModel class with common attributes/methods"""
-
     def __init__(self, *args, **kwargs):
         """Initialize a new BaseModel instance."""
         if kwargs:
@@ -23,16 +20,13 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
-
-    def __str__(self):
-        """Return string representation of the BaseModel instance."""
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+            storage.new(self)
+            storage.save()
 
     def save(self):
         """Update the updated_at attribute with the current datetime."""
         self.updated_at = datetime.now()
-        models.storage.save()
+        storage.save()
 
     def to_dict(self):
         """Return dictionary representation of the BaseModel instance."""

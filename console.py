@@ -45,16 +45,16 @@ class HBNBCommand(cmd.Cmd):
         if not command_arg:
             print("** class name missing **")
             return
-        
+
         parts = command_arg.split(' ')
         if parts[0] not in storage.classes():
             print("** class doesn't exist **")
             return
-        
+
         if len(parts) < 2:
             print("** instance id missing **")
             return
-        
+
         insta_key = "{}.{}".format(parts[0], parts[1])
         instance = storage.all().get(insta_key)
         if instance:
@@ -118,6 +118,7 @@ class HBNBCommand(cmd.Cmd):
             return
         setattr(obj, parts[2], parts[3])
         obj.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
