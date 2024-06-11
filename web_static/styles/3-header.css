@@ -1,0 +1,12 @@
+header {
+    background: #fff url('../images/logo.png') 20px center no-repeat;
+    border-bottom: 1px solid #ccc;
+    height: 70px;
+    width: 100%;
+}
+.logo {
+    position: fixed;
+    margin-left: 20px;
+    height: 30px;
+    background: url("../images/logo.png") center/contain no-repeat;
+}
