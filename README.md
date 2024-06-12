@@ -1,4 +1,4 @@
-# Atlas AirBnB Clone - The Console Project
+## Atlas AirBnB Clone - The Console Project
 ![Console logo](https://github.com/LJThao/atlas-AirBnB_clone/blob/main/images/console.png)
 
 ## Description
